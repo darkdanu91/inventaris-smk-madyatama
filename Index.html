@@ -1,0 +1,4575 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <base target="_top">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Inventaris Lab TKJ
+  </title>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+
+      margin: 0;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        #f8fafc;
+
+      color:
+        #1e293b;
+
+    }
+
+
+    button,
+    input,
+    select,
+    textarea {
+
+      font-family: inherit;
+
+    }
+
+
+    .container {
+
+      width: 100%;
+
+      max-width: 1400px;
+
+      margin: auto;
+
+      padding:
+        20px;
+
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header {
+
+      background:
+        #0f172a;
+
+      color: white;
+
+      padding:
+        18px 0;
+
+      box-shadow:
+        0 2px 8px
+        rgba(0,0,0,.12);
+
+    }
+
+
+    .header-inner {
+
+      max-width: 1400px;
+
+      margin: auto;
+
+      padding:
+        0 20px;
+
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+
+      gap: 15px;
+
+    }
+
+
+    .brand h1 {
+
+      margin: 0;
+
+      font-size: 22px;
+
+    }
+
+
+    .brand p {
+
+      margin:
+        5px 0 0;
+
+      font-size: 13px;
+
+      color:
+        #cbd5e1;
+
+    }
+
+
+    .header-actions {
+
+      display: flex;
+
+      gap: 8px;
+
+    }
+
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    button {
+
+      border: none;
+
+      cursor: pointer;
+
+      border-radius: 8px;
+
+      padding:
+        10px 15px;
+
+      font-size: 14px;
+
+    }
+
+
+    .btn-primary {
+
+      background:
+        #2563eb;
+
+      color: white;
+
+    }
+
+
+    .btn-primary:hover {
+
+      background:
+        #1d4ed8;
+
+    }
+
+
+    .btn-success {
+
+      background:
+        #16a34a;
+
+      color: white;
+
+    }
+
+
+    .btn-danger {
+
+      background:
+        #dc2626;
+
+      color: white;
+
+    }
+
+
+    .btn-secondary {
+
+      background:
+        #e2e8f0;
+
+      color:
+        #1e293b;
+
+    }
+
+
+    .btn-warning {
+
+      background:
+        #f59e0b;
+
+      color: white;
+
+    }
+
+
+    /* =========================
+       PAGE
+    ========================= */
+
+    .page-title {
+
+      margin:
+        5px 0 20px;
+
+    }
+
+
+    .page-title h2 {
+
+      margin: 0;
+
+      font-size: 24px;
+
+    }
+
+
+    .page-title p {
+
+      margin:
+        5px 0 0;
+
+      color:
+        #64748b;
+
+      font-size: 14px;
+
+    }
+
+
+    /* =========================
+       STATISTICS
+    ========================= */
+
+    .stats {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .stat-card {
+
+      background: white;
+
+      border-radius: 12px;
+
+      padding: 18px;
+
+      border:
+        1px solid #e2e8f0;
+
+      box-shadow:
+        0 2px 6px
+        rgba(15,23,42,.04);
+
+    }
+
+
+    .stat-label {
+
+      color:
+        #64748b;
+
+      font-size: 13px;
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .stat-value {
+
+      font-size: 28px;
+
+      font-weight: bold;
+
+      color:
+        #0f172a;
+
+    }
+
+
+    /* =========================
+       CARD
+    ========================= */
+
+    .card {
+
+      background: white;
+
+      border:
+        1px solid #e2e8f0;
+
+      border-radius: 12px;
+
+      padding: 18px;
+
+      margin-bottom: 20px;
+
+      box-shadow:
+        0 2px 6px
+        rgba(15,23,42,.04);
+
+    }
+
+
+    .card-header {
+
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-bottom: 15px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+    .card-header h3 {
+
+      margin: 0;
+
+      font-size: 18px;
+
+    }
+
+
+    /* =========================
+       FILTER
+    ========================= */
+
+    .filters {
+
+      display: grid;
+
+      grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+      gap: 10px;
+
+    }
+
+
+    input,
+    select,
+    textarea {
+
+      width: 100%;
+
+      border:
+        1px solid #cbd5e1;
+
+      border-radius: 8px;
+
+      padding:
+        10px 12px;
+
+      outline: none;
+
+      background: white;
+
+    }
+
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+
+      border-color:
+        #2563eb;
+
+      box-shadow:
+        0 0 0 2px
+        rgba(37,99,235,.1);
+
+    }
+
+
+    textarea {
+
+      resize: vertical;
+
+      min-height: 80px;
+
+    }
+
+
+    /* =========================
+       TABLE
+    ========================= */
+
+    .table-wrapper {
+
+      overflow-x: auto;
+
+    }
+
+
+    table {
+
+      width: 100%;
+
+      border-collapse:
+        collapse;
+
+      min-width:
+        900px;
+
+    }
+
+
+    th {
+
+      background:
+        #f1f5f9;
+
+      color:
+        #334155;
+
+      font-size: 13px;
+
+      text-align: left;
+
+      padding:
+        12px;
+
+      border-bottom:
+        1px solid #e2e8f0;
+
+    }
+
+
+    td {
+
+      padding:
+        12px;
+
+      border-bottom:
+        1px solid #e2e8f0;
+
+      font-size: 14px;
+
+      vertical-align: middle;
+
+    }
+
+
+    tr:hover td {
+
+      background:
+        #f8fafc;
+
+    }
+
+
+    /* =========================
+       BADGE
+    ========================= */
+
+    .badge {
+
+      display: inline-block;
+
+      padding:
+        5px 9px;
+
+      border-radius: 999px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+    }
+
+
+    .badge-baik {
+
+      background:
+        #dcfce7;
+
+      color:
+        #166534;
+
+    }
+
+
+    .badge-ringan {
+
+      background:
+        #fef3c7;
+
+      color:
+        #92400e;
+
+    }
+
+
+    .badge-berat {
+
+      background:
+        #fee2e2;
+
+      color:
+        #991b1b;
+
+    }
+
+
+    .badge-default {
+
+      background:
+        #e2e8f0;
+
+      color:
+        #475569;
+
+    }
+
+
+    /* =========================
+       FOTO ICON
+    ========================= */
+
+    .photo-link {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      width: 40px;
+
+      height: 40px;
+
+      background:
+        #eff6ff;
+
+      border:
+        1px solid #bfdbfe;
+
+      border-radius:
+        8px;
+
+      text-decoration:
+        none;
+
+      font-size:
+        21px;
+
+      transition:
+        .15s;
+
+    }
+
+
+    .photo-link:hover {
+
+      background:
+        #dbeafe;
+
+      transform:
+        translateY(-1px);
+
+    }
+
+
+    .photo-empty {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      width: 40px;
+
+      height: 40px;
+
+      background:
+        #f1f5f9;
+
+      border:
+        1px solid #e2e8f0;
+
+      border-radius:
+        8px;
+
+      font-size:
+        20px;
+
+      opacity:
+        .55;
+
+    }
+
+
+    /* =========================
+       ACTION
+    ========================= */
+
+    .actions {
+
+      display: flex;
+
+      gap: 5px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+    .btn-small {
+
+      padding:
+        7px 10px;
+
+      font-size:
+        12px;
+
+    }
+
+
+    /* =========================
+       EMPTY
+    ========================= */
+
+    .empty {
+
+      text-align:
+        center;
+
+      padding:
+        40px 20px;
+
+      color:
+        #64748b;
+
+    }
+
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+
+      display: none;
+
+      position: fixed;
+
+      z-index: 1000;
+
+      inset: 0;
+
+      background:
+        rgba(15,23,42,.55);
+
+      padding:
+        20px;
+
+      overflow-y: auto;
+
+    }
+
+
+    .modal.show {
+
+      display: flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+    }
+
+
+    .modal-content {
+
+      background: white;
+
+      width: 100%;
+
+      max-width: 750px;
+
+      border-radius:
+        14px;
+
+      padding: 20px;
+
+      box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.2);
+
+    }
+
+
+    .modal-header {
+
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+
+      margin-bottom: 18px;
+
+    }
+
+
+    .modal-header h3 {
+
+      margin: 0;
+
+    }
+
+
+    .close {
+
+      background:
+        transparent;
+
+      font-size:
+        24px;
+
+      padding: 0;
+
+      color:
+        #64748b;
+
+    }
+
+
+    .form-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 12px;
+
+    }
+
+
+    .form-group {
+
+      margin-bottom: 2px;
+
+    }
+
+
+    .form-group.full {
+
+      grid-column:
+        1 / -1;
+
+    }
+
+
+    .form-group label {
+
+      display: block;
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+      margin-bottom: 6px;
+
+      color:
+        #334155;
+
+    }
+
+
+    .modal-footer {
+
+      display: flex;
+
+      justify-content:
+        flex-end;
+
+      gap: 8px;
+
+      margin-top: 20px;
+
+    }
+
+
+    /* =========================
+       LOGIN
+    ========================= */
+
+    .login-box {
+
+      max-width:
+        420px;
+
+    }
+
+
+    .login-info {
+
+      background:
+        #eff6ff;
+
+      border:
+        1px solid #bfdbfe;
+
+      color:
+        #1e40af;
+
+      border-radius:
+        8px;
+
+      padding:
+        10px;
+
+      font-size:
+        13px;
+
+      margin-bottom:
+        15px;
+
+    }
+
+
+    /* =========================
+       CATEGORY
+    ========================= */
+
+    .kategori-list {
+
+      max-height:
+        350px;
+
+      overflow-y:
+        auto;
+
+      margin-top:
+        15px;
+
+    }
+
+
+    .kategori-item {
+
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+
+      padding:
+        10px;
+
+      border-bottom:
+        1px solid #e2e8f0;
+
+      gap: 10px;
+
+    }
+
+
+    /* =========================
+       ADMIN
+    ========================= */
+
+    #adminPage {
+
+      display: none;
+
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (
+      max-width: 900px
+    ) {
+
+      .stats {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+
+      .filters {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+    }
+
+
+    @media (
+      max-width: 600px
+    ) {
+
+      .container {
+
+        padding:
+          12px;
+
+      }
+
+
+      .header-inner {
+
+        padding:
+          0 12px;
+
+      }
+
+
+      .header-inner,
+      .card-header {
+
+        align-items:
+          flex-start;
+
+      }
+
+
+      .stats {
+
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 10px;
+
+      }
+
+
+      .stat-card {
+
+        padding:
+          13px;
+
+      }
+
+
+      .stat-value {
+
+        font-size:
+          22px;
+
+      }
+
+
+      .filters {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .form-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .form-group.full {
+
+        grid-column:
+          auto;
+
+      }
+
+
+      .brand h1 {
+
+        font-size:
+          18px;
+
+      }
+
+
+      .brand p {
+
+        font-size:
+          11px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+
+  <header class="header">
+
+    <div class="header-inner">
+
+      <div class="brand">
+
+        <h1>
+          Inventaris Lab TKJ
+        </h1>
+
+        <p>
+          SMK Madyatama Palembang
+        </p>
+
+      </div>
+
+
+      <div class="header-actions">
+
+        <button
+          id="adminButton"
+          class="btn-primary"
+          onclick="openLoginModal()"
+        >
+          🔐 Admin
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================
+       PUBLIC PAGE
+  ====================================== -->
+
+  <main
+    id="publicPage"
+    class="container"
+  >
+
+    <div class="page-title">
+
+      <h2>
+        Data Inventaris
+      </h2>
+
+      <p>
+        Daftar inventaris fasilitas Laboratorium TKJ
+      </p>
+
+    </div>
+
+
+    <!-- STATISTIK PUBLIC -->
+
+    <div class="stats">
+
+      <div class="stat-card">
+
+        <div class="stat-label">
+          Total Barang
+        </div>
+
+        <div
+          class="stat-value"
+          id="publicTotalBarang"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-label">
+          Jenis Barang
+        </div>
+
+        <div
+          class="stat-value"
+          id="publicJenisBarang"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-label">
+          Kondisi Baik
+        </div>
+
+        <div
+          class="stat-value"
+          id="publicBarangBaik"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-label">
+          Rusak
+        </div>
+
+        <div
+          class="stat-value"
+          id="publicBarangRusak"
+        >
+          0
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FILTER -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <h3>
+          🔎 Filter Inventaris
+        </h3>
+
+        <button
+          class="btn-secondary"
+          onclick="resetPublicFilter()"
+        >
+          Reset Filter
+        </button>
+
+      </div>
+
+
+      <div class="filters">
+
+        <input
+          type="text"
+          id="publicSearch"
+          placeholder="Cari kode, nama, merk, atau model..."
+          oninput="filterPublic()"
+        >
+
+
+        <select
+          id="publicKategori"
+          onchange="filterPublic()"
+        >
+
+          <option value="">
+            Semua Kategori
+          </option>
+
+        </select>
+
+
+        <select
+          id="publicLokasi"
+          onchange="filterPublic()"
+        >
+
+          <option value="">
+            Semua Lokasi
+          </option>
+
+        </select>
+
+
+        <select
+          id="publicKondisi"
+          onchange="filterPublic()"
+        >
+
+          <option value="">
+            Semua Kondisi
+          </option>
+
+          <option value="Baik">
+            Baik
+          </option>
+
+          <option value="Rusak Ringan">
+            Rusak Ringan
+          </option>
+
+          <option value="Rusak Berat">
+            Rusak Berat
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <!-- TABLE PUBLIC -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <h3>
+          📦 Daftar Barang
+        </h3>
+
+      </div>
+
+
+      <div
+        id="publicTable"
+        class="table-wrapper"
+      >
+
+        <div class="empty">
+          Memuat data...
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================
+       ADMIN PAGE
+  ====================================== -->
+
+  <main
+    id="adminPage"
+    class="container"
+  >
+
+    <div class="page-title">
+
+      <h2>
+        Dashboard Admin
+      </h2>
+
+      <p>
+        Pengelolaan inventaris Lab TKJ
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <div>
+
+          <strong id="adminWelcome">
+            Administrator
+          </strong>
+
+          <div
+            style="
+              color:#64748b;
+              font-size:13px;
+              margin-top:3px;
+            "
+          >
+            Mode Admin
+          </div>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="btn-success"
+            onclick="openAddModal()"
+          >
+            + Tambah Barang
+          </button>
+
+
+          <button
+            class="btn-secondary"
+            onclick="openKategoriModal()"
+          >
+            ⚙ Kategori
+          </button>
+
+
+          <button
+            class="btn-danger"
+            onclick="logout()"
+          >
+            Logout
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ADMIN STATS -->
+
+    <div class="stats">
+
+      <div class="stat-card">
+
+        <div class="stat-label">
+          Total Barang
+        </div>
+
+        <div
+          class="stat-value"
+          id="adminTotalBarang"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-label">
+          Jenis Barang
+        </div>
+
+        <div
+          class="stat-value"
+          id="adminJenisBarang"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-label">
+          Kondisi Baik
+        </div>
+
+        <div
+          class="stat-value"
+          id="adminBarangBaik"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-label">
+          Rusak
+        </div>
+
+        <div
+          class="stat-value"
+          id="adminBarangRusak"
+        >
+          0
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ADMIN FILTER -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <h3>
+          🔎 Filter Data
+        </h3>
+
+        <button
+          class="btn-secondary"
+          onclick="resetAdminFilter()"
+        >
+          Reset Filter
+        </button>
+
+      </div>
+
+
+      <div class="filters">
+
+        <input
+          type="text"
+          id="adminSearch"
+          placeholder="Cari barang..."
+          oninput="filterAdmin()"
+        >
+
+
+        <select
+          id="adminKategori"
+          onchange="filterAdmin()"
+        >
+
+          <option value="">
+            Semua Kategori
+          </option>
+
+        </select>
+
+
+        <select
+          id="adminLokasi"
+          onchange="filterAdmin()"
+        >
+
+          <option value="">
+            Semua Lokasi
+          </option>
+
+        </select>
+
+
+        <select
+          id="adminKondisi"
+          onchange="filterAdmin()"
+        >
+
+          <option value="">
+            Semua Kondisi
+          </option>
+
+          <option value="Baik">
+            Baik
+          </option>
+
+          <option value="Rusak Ringan">
+            Rusak Ringan
+          </option>
+
+          <option value="Rusak Berat">
+            Rusak Berat
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <!-- ADMIN TABLE -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <h3>
+          📦 Data Inventaris
+        </h3>
+
+      </div>
+
+
+      <div
+        id="adminTable"
+        class="table-wrapper"
+      >
+
+        <div class="empty">
+          Memuat data...
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================
+       LOGIN MODAL
+  ====================================== -->
+
+  <div
+    id="loginModal"
+    class="modal"
+  >
+
+    <div
+      class="modal-content login-box"
+    >
+
+      <div class="modal-header">
+
+        <h3>
+          🔐 Login Admin
+        </h3>
+
+        <button
+          class="close"
+          onclick="closeLoginModal()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="login-info">
+
+        Silakan masukkan username dan password administrator.
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Username
+        </label>
+
+        <input
+          type="text"
+          id="loginUsername"
+          autocomplete="username"
+          placeholder="Username"
+        >
+
+      </div>
+
+
+      <div
+        class="form-group"
+        style="margin-top:12px;"
+      >
+
+        <label>
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="loginPassword"
+          autocomplete="current-password"
+          placeholder="Password"
+        >
+
+      </div>
+
+
+      <div class="modal-footer">
+
+        <button
+          class="btn-secondary"
+          onclick="closeLoginModal()"
+        >
+          Batal
+        </button>
+
+        <button
+          class="btn-primary"
+          onclick="login()"
+        >
+          Login
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================
+       BARANG MODAL
+  ====================================== -->
+
+  <div
+    id="barangModal"
+    class="modal"
+  >
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h3 id="barangModalTitle">
+          Tambah Barang
+        </h3>
+
+        <button
+          class="close"
+          onclick="closeModal()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <input
+        type="hidden"
+        id="barangId"
+      >
+
+
+      <div class="form-grid">
+
+
+        <div class="form-group">
+
+          <label>
+            Kode Inventaris
+          </label>
+
+          <input
+            type="text"
+            id="barangKode"
+            placeholder="Contoh: TKJ-PC-001"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Nama Barang *
+          </label>
+
+          <input
+            type="text"
+            id="barangNama"
+            placeholder="Nama barang"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Kategori
+          </label>
+
+          <select
+            id="barangKategori"
+          >
+
+            <option value="">
+              Pilih Kategori
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Merk
+          </label>
+
+          <input
+            type="text"
+            id="barangMerk"
+            placeholder="Contoh: ASUS"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Model / Tipe
+          </label>
+
+          <input
+            type="text"
+            id="barangModel"
+            placeholder="Model atau tipe"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            No. Seri
+          </label>
+
+          <input
+            type="text"
+            id="barangSeri"
+            placeholder="Nomor seri"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Tahun
+          </label>
+
+          <input
+            type="number"
+            id="barangTahun"
+            placeholder="Contoh: 2026"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Sumber Dana
+          </label>
+
+          <input
+            type="text"
+            id="barangSumberDana"
+            placeholder="Contoh: BOS / Yayasan"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Harga
+          </label>
+
+          <input
+            type="number"
+            id="barangHarga"
+            placeholder="0"
+            min="0"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Lokasi
+          </label>
+
+          <select
+            id="barangLokasi"
+          >
+
+            <option value="">
+              Pilih Lokasi
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Kondisi
+          </label>
+
+          <select
+            id="barangKondisi"
+          >
+
+            <option value="Baik">
+              Baik
+            </option>
+
+            <option value="Rusak Ringan">
+              Rusak Ringan
+            </option>
+
+            <option value="Rusak Berat">
+              Rusak Berat
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Jumlah
+          </label>
+
+          <input
+            type="number"
+            id="barangJumlah"
+            value="1"
+            min="0"
+          >
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label>
+            Foto / Link Google Drive
+          </label>
+
+          <input
+            type="url"
+            id="barangFoto"
+            placeholder="https://drive.google.com/..."
+          >
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label>
+            Keterangan
+          </label>
+
+          <textarea
+            id="barangKeterangan"
+            placeholder="Keterangan tambahan..."
+          ></textarea>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="modal-footer">
+
+        <button
+          class="btn-secondary"
+          onclick="closeModal()"
+        >
+          Batal
+        </button>
+
+        <button
+          class="btn-primary"
+          onclick="saveBarang()"
+        >
+          Simpan
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================
+       KATEGORI MODAL
+  ====================================== -->
+
+  <div
+    id="kategoriModal"
+    class="modal"
+  >
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h3>
+          ⚙ Kelola Kategori
+        </h3>
+
+        <button
+          class="close"
+          onclick="closeKategoriModal()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <input
+        type="hidden"
+        id="kategoriId"
+      >
+
+
+      <div class="form-group">
+
+        <label>
+          Nama Kategori
+        </label>
+
+        <input
+          type="text"
+          id="kategoriNama"
+          placeholder="Contoh: CCTV"
+        >
+
+      </div>
+
+
+      <div
+        class="modal-footer"
+        style="justify-content:flex-start;"
+      >
+
+        <button
+          class="btn-primary"
+          onclick="saveKategori()"
+        >
+          Simpan Kategori
+        </button>
+
+
+        <button
+          class="btn-secondary"
+          onclick="resetKategoriForm()"
+        >
+          Batal Edit
+        </button>
+
+      </div>
+
+
+      <div
+        id="kategoriList"
+        class="kategori-list"
+      >
+
+        Memuat...
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+
+    /*************************************************
+     * GLOBAL
+     *************************************************/
+
+    let publicBarang = [];
+
+    let adminBarang = [];
+
+    let kategoriList = [];
+
+    let lokasiList = [];
+
+    let currentUser = null;
+
+
+    /*************************************************
+     * INITIAL LOAD
+     *************************************************/
+
+    document.addEventListener(
+      'DOMContentLoaded',
+      function() {
+
+        loadMasterData();
+
+        loadPublicData();
+
+        setupEnterLogin();
+
+      }
+    );
+
+
+    /*************************************************
+     * LOAD MASTER DATA
+     *************************************************/
+
+    function loadMasterData() {
+
+      google.script.run
+        .withSuccessHandler(
+          function(data) {
+
+            kategoriList =
+              data.kategori || [];
+
+            lokasiList =
+              data.lokasi || [];
+
+
+            fillKategoriSelects();
+
+            fillLokasiSelects();
+
+          }
+        )
+        .withFailureHandler(
+          function(error) {
+
+            console.error(error);
+
+            alert(
+              'Gagal memuat data master.'
+            );
+
+          }
+        )
+        .getMasterData();
+
+    }
+
+
+    /*************************************************
+     * FILL KATEGORI
+     *************************************************/
+
+    function fillKategoriSelects() {
+
+      fillSelect(
+        'publicKategori',
+        kategoriList,
+        'Semua Kategori'
+      );
+
+
+      fillSelect(
+        'adminKategori',
+        kategoriList,
+        'Semua Kategori'
+      );
+
+
+      fillSelect(
+        'barangKategori',
+        kategoriList,
+        'Pilih Kategori'
+      );
+
+    }
+
+
+    /*************************************************
+     * FILL LOKASI
+     *************************************************/
+
+    function fillLokasiSelects() {
+
+      fillSelect(
+        'publicLokasi',
+        lokasiList,
+        'Semua Lokasi'
+      );
+
+
+      fillSelect(
+        'adminLokasi',
+        lokasiList,
+        'Semua Lokasi'
+      );
+
+
+      fillSelect(
+        'barangLokasi',
+        lokasiList,
+        'Pilih Lokasi'
+      );
+
+    }
+
+
+    /*************************************************
+     * FILL SELECT
+     *************************************************/
+
+    function fillSelect(
+      elementId,
+      data,
+      firstText
+    ) {
+
+      const select =
+        document.getElementById(
+          elementId
+        );
+
+
+      if (!select) {
+        return;
+      }
+
+
+      select.innerHTML =
+        `<option value="">
+          ${escapeHtml(firstText)}
+        </option>`;
+
+
+      data.forEach(
+        function(item) {
+
+          const option =
+            document.createElement(
+              'option'
+            );
+
+
+          option.value =
+            item;
+
+          option.textContent =
+            item;
+
+
+          select.appendChild(
+            option
+          );
+
+        }
+      );
+
+    }
+
+
+    /*************************************************
+     * LOAD PUBLIC
+     *************************************************/
+
+    function loadPublicData() {
+
+      google.script.run
+        .withSuccessHandler(
+          function(data) {
+
+            publicBarang =
+              data || [];
+
+
+            renderPublicTable(
+              publicBarang
+            );
+
+
+            // Statistik awal
+            // menggunakan seluruh data
+
+            updatePublicStats(
+              publicBarang
+            );
+
+          }
+        )
+        .withFailureHandler(
+          function(error) {
+
+            console.error(error);
+
+            document.getElementById(
+              'publicTable'
+            ).innerHTML = `
+
+              <div class="empty">
+                Gagal memuat data inventaris.
+              </div>
+
+            `;
+
+          }
+        )
+        .getPublicBarang();
+
+    }
+
+
+    /*************************************************
+     * FILTER PUBLIC
+     *************************************************/
+
+    function filterPublic() {
+
+      const search =
+        document.getElementById(
+          'publicSearch'
+        )
+        .value
+        .toLowerCase()
+        .trim();
+
+
+      const kategori =
+        document.getElementById(
+          'publicKategori'
+        ).value;
+
+
+      const lokasi =
+        document.getElementById(
+          'publicLokasi'
+        ).value;
+
+
+      const kondisi =
+        document.getElementById(
+          'publicKondisi'
+        ).value;
+
+
+      const filtered =
+        publicBarang.filter(
+          function(item) {
+
+            const cocokSearch =
+
+              !search ||
+
+              String(item.kode || '')
+                .toLowerCase()
+                .includes(search) ||
+
+              String(item.nama || '')
+                .toLowerCase()
+                .includes(search) ||
+
+              String(item.merk || '')
+                .toLowerCase()
+                .includes(search) ||
+
+              String(item.model || '')
+                .toLowerCase()
+                .includes(search);
+
+
+            const cocokKategori =
+
+              !kategori ||
+              item.kategori ===
+                kategori;
+
+
+            const cocokLokasi =
+
+              !lokasi ||
+              item.lokasi ===
+                lokasi;
+
+
+            const cocokKondisi =
+
+              !kondisi ||
+              item.kondisi ===
+                kondisi;
+
+
+            return (
+              cocokSearch &&
+              cocokKategori &&
+              cocokLokasi &&
+              cocokKondisi
+            );
+
+          }
+        );
+
+
+      // Tabel mengikuti filter
+
+      renderPublicTable(
+        filtered
+      );
+
+
+      // Statistik juga mengikuti filter
+
+      updatePublicStats(
+        filtered
+      );
+
+    }
+
+
+    /*************************************************
+     * RESET PUBLIC FILTER
+     *************************************************/
+
+    function resetPublicFilter() {
+
+      document.getElementById(
+        'publicSearch'
+      ).value = '';
+
+
+      document.getElementById(
+        'publicKategori'
+      ).value = '';
+
+
+      document.getElementById(
+        'publicLokasi'
+      ).value = '';
+
+
+      document.getElementById(
+        'publicKondisi'
+      ).value = '';
+
+
+      filterPublic();
+
+    }
+
+
+    /*************************************************
+     * PUBLIC STATISTICS
+     * MENGIKUTI DATA HASIL FILTER
+     *************************************************/
+
+    function updatePublicStats(
+      data
+    ) {
+
+      data =
+        data || [];
+
+
+      let totalBarang = 0;
+
+      let barangBaik = 0;
+
+      let barangRusak = 0;
+
+
+      data.forEach(
+        function(item) {
+
+          const jumlah =
+            Number(
+              item.jumlah
+            ) || 0;
+
+
+          totalBarang +=
+            jumlah;
+
+
+          if (
+            item.kondisi ===
+            'Baik'
+          ) {
+
+            barangBaik +=
+              jumlah;
+
+          }
+
+
+          if (
+            item.kondisi ===
+              'Rusak Ringan' ||
+
+            item.kondisi ===
+              'Rusak Berat'
+          ) {
+
+            barangRusak +=
+              jumlah;
+
+          }
+
+        }
+      );
+
+
+      document.getElementById(
+        'publicTotalBarang'
+      ).textContent =
+        totalBarang.toLocaleString(
+          'id-ID'
+        );
+
+
+      document.getElementById(
+        'publicJenisBarang'
+      ).textContent =
+        data.length.toLocaleString(
+          'id-ID'
+        );
+
+
+      document.getElementById(
+        'publicBarangBaik'
+      ).textContent =
+        barangBaik.toLocaleString(
+          'id-ID'
+        );
+
+
+      document.getElementById(
+        'publicBarangRusak'
+      ).textContent =
+        barangRusak.toLocaleString(
+          'id-ID'
+        );
+
+    }
+
+
+    /*************************************************
+     * RENDER PUBLIC TABLE
+     *************************************************/
+
+    function renderPublicTable(
+      data
+    ) {
+
+      const container =
+        document.getElementById(
+          'publicTable'
+        );
+
+
+      if (!data.length) {
+
+        container.innerHTML = `
+
+          <div class="empty">
+            Tidak ada data inventaris.
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      let html = `
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>No</th>
+
+              <th>Foto</th>
+
+              <th>Kode</th>
+
+              <th>Nama Barang</th>
+
+              <th>Kategori</th>
+
+              <th>Merk / Model</th>
+
+              <th>Jumlah</th>
+
+              <th>Lokasi</th>
+
+              <th>Kondisi</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+      `;
+
+
+      data.forEach(
+        function(item, index) {
+
+          html += `
+
+            <tr>
+
+              <td>
+                ${index + 1}
+              </td>
+
+
+              <td>
+
+                ${
+                  item.foto
+
+                    ? `
+
+                      <a
+                        href="${escapeAttr(
+                          item.foto
+                        )}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Lihat foto ${escapeAttr(
+                          item.nama
+                        )}"
+                        class="photo-link"
+                      >
+                        📷
+                      </a>
+
+                    `
+
+                    : `
+
+                      <span
+                        title="Foto belum tersedia"
+                        class="photo-empty"
+                      >
+                        📷
+                      </span>
+
+                    `
+                }
+
+              </td>
+
+
+              <td>
+                ${escapeHtml(
+                  item.kode
+                )}
+              </td>
+
+
+              <td>
+
+                <strong>
+                  ${escapeHtml(
+                    item.nama
+                  )}
+                </strong>
+
+              </td>
+
+
+              <td>
+                ${escapeHtml(
+                  item.kategori
+                )}
+              </td>
+
+
+              <td>
+
+                ${escapeHtml(
+                  item.merk
+                )}
+
+                ${
+                  item.model
+                    ? '<br>' +
+                      escapeHtml(
+                        item.model
+                      )
+                    : ''
+                }
+
+              </td>
+
+
+              <td>
+                ${Number(
+                  item.jumlah || 0
+                ).toLocaleString('id-ID')}
+              </td>
+
+
+              <td>
+                ${escapeHtml(
+                  item.lokasi
+                )}
+              </td>
+
+
+              <td>
+
+                ${badgeKondisi(
+                  item.kondisi
+                )}
+
+              </td>
+
+            </tr>
+
+          `;
+
+        }
+      );
+
+
+      html += `
+
+          </tbody>
+
+        </table>
+
+      `;
+
+
+      container.innerHTML =
+        html;
+
+    }
+
+
+    /*************************************************
+     * LOGIN MODAL
+     *************************************************/
+
+    function openLoginModal() {
+
+      document
+        .getElementById(
+          'loginModal'
+        )
+        .classList.add('show');
+
+
+      setTimeout(
+        function() {
+
+          document
+            .getElementById(
+              'loginUsername'
+            )
+            .focus();
+
+        },
+        100
+      );
+
+    }
+
+
+    function closeLoginModal() {
+
+      document
+        .getElementById(
+          'loginModal'
+        )
+        .classList.remove('show');
+
+    }
+
+
+    /*************************************************
+     * LOGIN
+     *************************************************/
+
+    function login() {
+
+      const username =
+        document.getElementById(
+          'loginUsername'
+        ).value.trim();
+
+
+      const password =
+        document.getElementById(
+          'loginPassword'
+        ).value;
+
+
+      if (
+        !username ||
+        !password
+      ) {
+
+        alert(
+          'Username dan password wajib diisi.'
+        );
+
+        return;
+
+      }
+
+
+      google.script.run
+        .withSuccessHandler(
+          function(result) {
+
+            if (
+              result &&
+              result.success
+            ) {
+
+              currentUser =
+                result.user;
+
+
+              closeLoginModal();
+
+              showAdmin();
+
+              loadAdminData();
+
+
+              document.getElementById(
+                'loginUsername'
+              ).value = '';
+
+
+              document.getElementById(
+                'loginPassword'
+              ).value = '';
+
+            } else {
+
+              alert(
+                result.message ||
+                'Login gagal.'
+              );
+
+            }
+
+          }
+        )
+        .withFailureHandler(
+          function(error) {
+
+            console.error(error);
+
+            alert(
+              'Terjadi kesalahan saat login.'
+            );
+
+          }
+        )
+        .loginAdmin(
+          username,
+          password
+        );
+
+    }
+
+
+    /*************************************************
+     * SHOW ADMIN
+     *************************************************/
+
+    function showAdmin() {
+
+      document.getElementById(
+        'publicPage'
+      ).style.display =
+        'none';
+
+
+      document.getElementById(
+        'adminPage'
+      ).style.display =
+        'block';
+
+
+      document.getElementById(
+        'adminButton'
+      ).style.display =
+        'none';
+
+
+      if (currentUser) {
+
+        document.getElementById(
+          'adminWelcome'
+        ).textContent =
+          'Halo, ' +
+          (
+            currentUser.nama ||
+            currentUser.username
+          );
+
+      }
+
+    }
+
+
+    /*************************************************
+     * SHOW PUBLIC
+     *************************************************/
+
+    function showPublic() {
+
+      document.getElementById(
+        'adminPage'
+      ).style.display =
+        'none';
+
+
+      document.getElementById(
+        'publicPage'
+      ).style.display =
+        'block';
+
+
+      document.getElementById(
+        'adminButton'
+      ).style.display =
+        'inline-block';
+
+    }
+
+
+    /*************************************************
+     * LOGOUT
+     *************************************************/
+
+    function logout() {
+
+      currentUser = null;
+
+      showPublic();
+
+      loadPublicData();
+
+    }
+
+
+    /*************************************************
+     * LOAD ADMIN
+     *************************************************/
+
+    function loadAdminData() {
+
+      google.script.run
+        .withSuccessHandler(
+          function(data) {
+
+            adminBarang =
+              data || [];
+
+
+            renderAdminTable(
+              adminBarang
+            );
+
+
+            updateAdminStats(
+              adminBarang
+            );
+
+          }
+        )
+        .withFailureHandler(
+          function(error) {
+
+            console.error(error);
+
+            alert(
+              'Gagal memuat data admin.'
+            );
+
+          }
+        )
+        .getAllBarang();
+
+    }
+
+
+    /*************************************************
+     * FILTER ADMIN
+     *************************************************/
+
+    function filterAdmin() {
+
+      const search =
+        document.getElementById(
+          'adminSearch'
+        )
+        .value
+        .toLowerCase()
+        .trim();
+
+
+      const kategori =
+        document.getElementById(
+          'adminKategori'
+        ).value;
+
+
+      const lokasi =
+        document.getElementById(
+          'adminLokasi'
+        ).value;
+
+
+      const kondisi =
+        document.getElementById(
+          'adminKondisi'
+        ).value;
+
+
+      const filtered =
+        adminBarang.filter(
+          function(item) {
+
+            const cocokSearch =
+
+              !search ||
+
+              String(item.kode || '')
+                .toLowerCase()
+                .includes(search) ||
+
+              String(item.nama || '')
+                .toLowerCase()
+                .includes(search) ||
+
+              String(item.merk || '')
+                .toLowerCase()
+                .includes(search) ||
+
+              String(item.model || '')
+                .toLowerCase()
+                .includes(search);
+
+
+            return (
+
+              cocokSearch &&
+
+              (
+                !kategori ||
+                item.kategori ===
+                  kategori
+              ) &&
+
+              (
+                !lokasi ||
+                item.lokasi ===
+                  lokasi
+              ) &&
+
+              (
+                !kondisi ||
+                item.kondisi ===
+                  kondisi
+              )
+
+            );
+
+          }
+        );
+
+
+      renderAdminTable(
+        filtered
+      );
+
+
+      updateAdminStats(
+        filtered
+      );
+
+    }
+
+
+    /*************************************************
+     * RESET ADMIN FILTER
+     *************************************************/
+
+    function resetAdminFilter() {
+
+      document.getElementById(
+        'adminSearch'
+      ).value = '';
+
+
+      document.getElementById(
+        'adminKategori'
+      ).value = '';
+
+
+      document.getElementById(
+        'adminLokasi'
+      ).value = '';
+
+
+      document.getElementById(
+        'adminKondisi'
+      ).value = '';
+
+
+      filterAdmin();
+
+    }
+
+
+    /*************************************************
+     * ADMIN STATISTICS
+     *************************************************/
+
+    function updateAdminStats(
+      data
+    ) {
+
+      data =
+        data || [];
+
+
+      let total = 0;
+
+      let baik = 0;
+
+      let rusak = 0;
+
+
+      data.forEach(
+        function(item) {
+
+          const jumlah =
+            Number(
+              item.jumlah
+            ) || 0;
+
+
+          total +=
+            jumlah;
+
+
+          if (
+            item.kondisi ===
+            'Baik'
+          ) {
+
+            baik +=
+              jumlah;
+
+          }
+
+
+          if (
+            item.kondisi ===
+              'Rusak Ringan' ||
+
+            item.kondisi ===
+              'Rusak Berat'
+          ) {
+
+            rusak +=
+              jumlah;
+
+          }
+
+        }
+      );
+
+
+      document.getElementById(
+        'adminTotalBarang'
+      ).textContent =
+        total.toLocaleString(
+          'id-ID'
+        );
+
+
+      document.getElementById(
+        'adminJenisBarang'
+      ).textContent =
+        data.length.toLocaleString(
+          'id-ID'
+        );
+
+
+      document.getElementById(
+        'adminBarangBaik'
+      ).textContent =
+        baik.toLocaleString(
+          'id-ID'
+        );
+
+
+      document.getElementById(
+        'adminBarangRusak'
+      ).textContent =
+        rusak.toLocaleString(
+          'id-ID'
+        );
+
+    }
+
+
+    /*************************************************
+     * RENDER ADMIN TABLE
+     *************************************************/
+
+    function renderAdminTable(
+      data
+    ) {
+
+      const container =
+        document.getElementById(
+          'adminTable'
+        );
+
+
+      if (!data.length) {
+
+        container.innerHTML = `
+
+          <div class="empty">
+            Tidak ada data inventaris.
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      let html = `
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>No</th>
+
+              <th>Kode</th>
+
+              <th>Nama Barang</th>
+
+              <th>Kategori</th>
+
+              <th>Merk / Model</th>
+
+              <th>Jumlah</th>
+
+              <th>Lokasi</th>
+
+              <th>Kondisi</th>
+
+              <th>Foto</th>
+
+              <th>Aksi</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+      `;
+
+
+      data.forEach(
+        function(item, index) {
+
+          html += `
+
+            <tr>
+
+              <td>
+                ${index + 1}
+              </td>
+
+
+              <td>
+                ${escapeHtml(
+                  item.kode
+                )}
+              </td>
+
+
+              <td>
+
+                <strong>
+                  ${escapeHtml(
+                    item.nama
+                  )}
+                </strong>
+
+              </td>
+
+
+              <td>
+                ${escapeHtml(
+                  item.kategori
+                )}
+              </td>
+
+
+              <td>
+
+                ${escapeHtml(
+                  item.merk
+                )}
+
+                ${
+                  item.model
+                    ? '<br>' +
+                      escapeHtml(
+                        item.model
+                      )
+                    : ''
+                }
+
+              </td>
+
+
+              <td>
+                ${Number(
+                  item.jumlah || 0
+                ).toLocaleString('id-ID')}
+              </td>
+
+
+              <td>
+                ${escapeHtml(
+                  item.lokasi
+                )}
+              </td>
+
+
+              <td>
+
+                ${badgeKondisi(
+                  item.kondisi
+                )}
+
+              </td>
+
+
+              <td>
+
+                ${
+                  item.foto
+
+                    ? `
+
+                      <a
+                        href="${escapeAttr(
+                          item.foto
+                        )}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="photo-link"
+                        title="Lihat foto"
+                      >
+                        📷
+                      </a>
+
+                    `
+
+                    : `
+
+                      <span
+                        class="photo-empty"
+                        title="Foto belum tersedia"
+                      >
+                        📷
+                      </span>
+
+                    `
+                }
+
+              </td>
+
+
+              <td>
+
+                <div class="actions">
+
+                  <button
+                    class="btn-warning btn-small"
+                    onclick="editBarangById('${escapeAttr(
+                      item.id
+                    )}')"
+                  >
+                    Edit
+                  </button>
+
+
+                  <button
+                    class="btn-danger btn-small"
+                    onclick="hapusBarang('${escapeAttr(
+                      item.id
+                    )}')"
+                  >
+                    Hapus
+                  </button>
+
+                </div>
+
+              </td>
+
+            </tr>
+
+          `;
+
+        }
+      );
+
+
+      html += `
+
+          </tbody>
+
+        </table>
+
+      `;
+
+
+      container.innerHTML =
+        html;
+
+    }
+
+
+    /*************************************************
+     * BADGE KONDISI
+     *************************************************/
+
+    function badgeKondisi(
+      kondisi
+    ) {
+
+      const value =
+        String(
+          kondisi || ''
+        );
+
+
+      if (
+        value === 'Baik'
+      ) {
+
+        return `
+          <span class="badge badge-baik">
+            Baik
+          </span>
+        `;
+
+      }
+
+
+      if (
+        value === 'Rusak Ringan'
+      ) {
+
+        return `
+          <span class="badge badge-ringan">
+            Rusak Ringan
+          </span>
+        `;
+
+      }
+
+
+      if (
+        value === 'Rusak Berat'
+      ) {
+
+        return `
+          <span class="badge badge-berat">
+            Rusak Berat
+          </span>
+        `;
+
+      }
+
+
+      return `
+        <span class="badge badge-default">
+          ${escapeHtml(value)}
+        </span>
+      `;
+
+    }
+
+
+    /*************************************************
+     * ADD BARANG
+     *************************************************/
+
+    function openAddModal() {
+
+      clearForm();
+
+
+      document.getElementById(
+        'barangModalTitle'
+      ).textContent =
+        'Tambah Barang';
+
+
+      document.getElementById(
+        'barangModal'
+      ).classList.add('show');
+
+    }
+
+
+    /*************************************************
+     * EDIT BARANG
+     *************************************************/
+
+    function editBarangById(
+      id
+    ) {
+
+      const item =
+        adminBarang.find(
+          function(data) {
+
+            return String(
+              data.id
+            ) === String(id);
+
+          }
+        );
+
+
+      if (!item) {
+
+        alert(
+          'Data barang tidak ditemukan.'
+        );
+
+        return;
+
+      }
+
+
+      document.getElementById(
+        'barangModalTitle'
+      ).textContent =
+        'Edit Barang';
+
+
+      document.getElementById(
+        'barangId'
+      ).value =
+        item.id || '';
+
+
+      document.getElementById(
+        'barangKode'
+      ).value =
+        item.kode || '';
+
+
+      document.getElementById(
+        'barangNama'
+      ).value =
+        item.nama || '';
+
+
+      document.getElementById(
+        'barangKategori'
+      ).value =
+        item.kategori || '';
+
+
+      document.getElementById(
+        'barangMerk'
+      ).value =
+        item.merk || '';
+
+
+      document.getElementById(
+        'barangModel'
+      ).value =
+        item.model || '';
+
+
+      document.getElementById(
+        'barangSeri'
+      ).value =
+        item.seri || '';
+
+
+      document.getElementById(
+        'barangTahun'
+      ).value =
+        item.tahun || '';
+
+
+      document.getElementById(
+        'barangSumberDana'
+      ).value =
+        item.sumberDana || '';
+
+
+      document.getElementById(
+        'barangHarga'
+      ).value =
+        item.harga || '';
+
+
+      document.getElementById(
+        'barangLokasi'
+      ).value =
+        item.lokasi || '';
+
+
+      document.getElementById(
+        'barangKondisi'
+      ).value =
+        item.kondisi || 'Baik';
+
+
+      document.getElementById(
+        'barangJumlah'
+      ).value =
+        item.jumlah || 1;
+
+
+      document.getElementById(
+        'barangFoto'
+      ).value =
+        item.foto || '';
+
+
+      document.getElementById(
+        'barangKeterangan'
+      ).value =
+        item.keterangan || '';
+
+
+      document.getElementById(
+        'barangModal'
+      ).classList.add('show');
+
+    }
+
+
+    /*************************************************
+     * CLEAR FORM
+     *************************************************/
+
+    function clearForm() {
+
+      document.getElementById(
+        'barangId'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangKode'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangNama'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangKategori'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangMerk'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangModel'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangSeri'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangTahun'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangSumberDana'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangHarga'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangLokasi'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangKondisi'
+      ).value = 'Baik';
+
+
+      document.getElementById(
+        'barangJumlah'
+      ).value = '1';
+
+
+      document.getElementById(
+        'barangFoto'
+      ).value = '';
+
+
+      document.getElementById(
+        'barangKeterangan'
+      ).value = '';
+
+    }
+
+
+    /*************************************************
+     * SAVE BARANG
+     *************************************************/
+
+    function saveBarang() {
+
+      const id =
+        document.getElementById(
+          'barangId'
+        ).value;
+
+
+      const data = {
+
+        id: id,
+
+        kode:
+          document.getElementById(
+            'barangKode'
+          ).value.trim(),
+
+        nama:
+          document.getElementById(
+            'barangNama'
+          ).value.trim(),
+
+        kategori:
+          document.getElementById(
+            'barangKategori'
+          ).value,
+
+        merk:
+          document.getElementById(
+            'barangMerk'
+          ).value.trim(),
+
+        model:
+          document.getElementById(
+            'barangModel'
+          ).value.trim(),
+
+        seri:
+          document.getElementById(
+            'barangSeri'
+          ).value.trim(),
+
+        tahun:
+          document.getElementById(
+            'barangTahun'
+          ).value,
+
+        sumberDana:
+          document.getElementById(
+            'barangSumberDana'
+          ).value.trim(),
+
+        harga:
+          document.getElementById(
+            'barangHarga'
+          ).value,
+
+        lokasi:
+          document.getElementById(
+            'barangLokasi'
+          ).value,
+
+        kondisi:
+          document.getElementById(
+            'barangKondisi'
+          ).value,
+
+        jumlah:
+          document.getElementById(
+            'barangJumlah'
+          ).value,
+
+        foto:
+          document.getElementById(
+            'barangFoto'
+          ).value.trim(),
+
+        keterangan:
+          document.getElementById(
+            'barangKeterangan'
+          ).value.trim()
+
+      };
+
+
+      if (!data.nama) {
+
+        alert(
+          'Nama barang wajib diisi.'
+        );
+
+        return;
+
+      }
+
+
+      if (!data.kategori) {
+
+        alert(
+          'Silakan pilih kategori.'
+        );
+
+        return;
+
+      }
+
+
+      if (!data.lokasi) {
+
+        alert(
+          'Silakan pilih lokasi.'
+        );
+
+        return;
+
+      }
+
+
+      if (
+        id
+      ) {
+
+        google.script.run
+          .withSuccessHandler(
+            function(result) {
+
+              if (
+                result.success
+              ) {
+
+                alert(
+                  result.message
+                );
+
+                closeModal();
+
+                loadAdminData();
+
+                loadPublicData();
+
+              } else {
+
+                alert(
+                  result.message
+                );
+
+              }
+
+            }
+          )
+          .withFailureHandler(
+            function(error) {
+
+              console.error(error);
+
+              alert(
+                'Gagal memperbarui data.'
+              );
+
+            }
+          )
+          .updateBarang(
+            data
+          );
+
+      } else {
+
+        google.script.run
+          .withSuccessHandler(
+            function(result) {
+
+              if (
+                result.success
+              ) {
+
+                alert(
+                  result.message
+                );
+
+                closeModal();
+
+                loadAdminData();
+
+                loadPublicData();
+
+              } else {
+
+                alert(
+                  result.message
+                );
+
+              }
+
+            }
+          )
+          .withFailureHandler(
+            function(error) {
+
+              console.error(error);
+
+              alert(
+                'Gagal menambahkan data.'
+              );
+
+            }
+          )
+          .tambahBarang(
+            data
+          );
+
+      }
+
+    }
+
+
+    /*************************************************
+     * CLOSE BARANG MODAL
+     *************************************************/
+
+    function closeModal() {
+
+      document.getElementById(
+        'barangModal'
+      ).classList.remove('show');
+
+    }
+
+
+    /*************************************************
+     * DELETE BARANG
+     *************************************************/
+
+    function hapusBarang(
+      id
+    ) {
+
+      const item =
+        adminBarang.find(
+          function(data) {
+
+            return String(
+              data.id
+            ) === String(id);
+
+          }
+        );
+
+
+      if (!item) {
+
+        return;
+
+      }
+
+
+      const yakin =
+        confirm(
+          'Hapus barang "' +
+          item.nama +
+          '"?'
+        );
+
+
+      if (!yakin) {
+
+        return;
+
+      }
+
+
+      google.script.run
+        .withSuccessHandler(
+          function(result) {
+
+            if (
+              result.success
+            ) {
+
+              alert(
+                result.message
+              );
+
+              loadAdminData();
+
+              loadPublicData();
+
+            } else {
+
+              alert(
+                result.message
+              );
+
+            }
+
+          }
+        )
+        .withFailureHandler(
+          function(error) {
+
+            console.error(error);
+
+            alert(
+              'Gagal menghapus data.'
+            );
+
+          }
+        )
+        .deleteBarang(
+          id
+        );
+
+    }
+
+
+    /*************************************************
+     * KATEGORI MODAL
+     *************************************************/
+
+    function openKategoriModal() {
+
+      resetKategoriForm();
+
+      loadKategoriAdmin();
+
+
+      document.getElementById(
+        'kategoriModal'
+      ).classList.add('show');
+
+    }
+
+
+    function closeKategoriModal() {
+
+      document.getElementById(
+        'kategoriModal'
+      ).classList.remove('show');
+
+    }
+
+
+    function resetKategoriForm() {
+
+      document.getElementById(
+        'kategoriId'
+      ).value = '';
+
+
+      document.getElementById(
+        'kategoriNama'
+      ).value = '';
+
+    }
+
+
+    /*************************************************
+     * LOAD KATEGORI ADMIN
+     *************************************************/
+
+    function loadKategoriAdmin() {
+
+      google.script.run
+        .withSuccessHandler(
+          function(data) {
+
+            renderKategoriAdmin(
+              data || []
+            );
+
+          }
+        )
+        .withFailureHandler(
+          function(error) {
+
+            console.error(error);
+
+            alert(
+              'Gagal memuat kategori.'
+            );
+
+          }
+        )
+        .getKategoriAdmin();
+
+    }
+
+
+    /*************************************************
+     * RENDER KATEGORI
+     *************************************************/
+
+    function renderKategoriAdmin(
+      data
+    ) {
+
+      const container =
+        document.getElementById(
+          'kategoriList'
+        );
+
+
+      if (!data.length) {
+
+        container.innerHTML = `
+
+          <div class="empty">
+            Belum ada kategori.
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      let html = '';
+
+
+      data.forEach(
+        function(item) {
+
+          html += `
+
+            <div class="kategori-item">
+
+              <div>
+
+                <strong>
+                  ${escapeHtml(
+                    item.nama
+                  )}
+                </strong>
+
+              </div>
+
+
+              <div class="actions">
+
+                <button
+                  class="btn-warning btn-small"
+                  onclick="editKategori(
+                    '${escapeAttr(item.id)}',
+                    '${escapeAttr(item.nama)}'
+                  )"
+                >
+                  Edit
+                </button>
+
+
+                <button
+                  class="btn-danger btn-small"
+                  onclick="hapusKategori(
+                    '${escapeAttr(item.id)}'
+                  )"
+                >
+                  Hapus
+                </button>
+
+              </div>
+
+            </div>
+
+          `;
+
+        }
+      );
+
+
+      container.innerHTML =
+        html;
+
+    }
+
+
+    /*************************************************
+     * SAVE KATEGORI
+     *************************************************/
+
+    function saveKategori() {
+
+      const id =
+        document.getElementById(
+          'kategoriId'
+        ).value;
+
+
+      const nama =
+        document.getElementById(
+          'kategoriNama'
+        ).value.trim();
+
+
+      if (!nama) {
+
+        alert(
+          'Nama kategori wajib diisi.'
+        );
+
+        return;
+
+      }
+
+
+      if (id) {
+
+        google.script.run
+          .withSuccessHandler(
+            function(result) {
+
+              if (
+                result.success
+              ) {
+
+                alert(
+                  result.message
+                );
+
+                resetKategoriForm();
+
+                loadKategoriAdmin();
+
+                loadMasterData();
+
+                loadAdminData();
+
+                loadPublicData();
+
+              } else {
+
+                alert(
+                  result.message
+                );
+
+              }
+
+            }
+          )
+          .withFailureHandler(
+            function(error) {
+
+              console.error(error);
+
+              alert(
+                'Gagal memperbarui kategori.'
+              );
+
+            }
+          )
+          .updateKategori(
+            id,
+            nama
+          );
+
+      } else {
+
+        google.script.run
+          .withSuccessHandler(
+            function(result) {
+
+              if (
+                result.success
+              ) {
+
+                alert(
+                  result.message
+                );
+
+                resetKategoriForm();
+
+                loadKategoriAdmin();
+
+                loadMasterData();
+
+              } else {
+
+                alert(
+                  result.message
+                );
+
+              }
+
+            }
+          )
+          .withFailureHandler(
+            function(error) {
+
+              console.error(error);
+
+              alert(
+                'Gagal menambahkan kategori.'
+              );
+
+            }
+          )
+          .tambahKategori(
+            nama
+          );
+
+      }
+
+    }
+
+
+    /*************************************************
+     * EDIT KATEGORI
+     *************************************************/
+
+    function editKategori(
+      id,
+      nama
+    ) {
+
+      document.getElementById(
+        'kategoriId'
+      ).value =
+        id;
+
+
+      document.getElementById(
+        'kategoriNama'
+      ).value =
+        nama;
+
+
+      document.getElementById(
+        'kategoriNama'
+      ).focus();
+
+    }
+
+
+    /*************************************************
+     * DELETE KATEGORI
+     *************************************************/
+
+    function hapusKategori(
+      id
+    ) {
+
+      const yakin =
+        confirm(
+          'Yakin ingin menghapus kategori ini?'
+        );
+
+
+      if (!yakin) {
+
+        return;
+
+      }
+
+
+      google.script.run
+        .withSuccessHandler(
+          function(result) {
+
+            if (
+              result.success
+            ) {
+
+              alert(
+                result.message
+              );
+
+              loadKategoriAdmin();
+
+              loadMasterData();
+
+            } else {
+
+              alert(
+                result.message
+              );
+
+            }
+
+          }
+        )
+        .withFailureHandler(
+          function(error) {
+
+            console.error(error);
+
+            alert(
+              'Gagal menghapus kategori.'
+            );
+
+          }
+        )
+        .deleteKategori(
+          id
+        );
+
+    }
+
+
+    /*************************************************
+     * ENTER LOGIN
+     *************************************************/
+
+    function setupEnterLogin() {
+
+      const username =
+        document.getElementById(
+          'loginUsername'
+        );
+
+
+      const password =
+        document.getElementById(
+          'loginPassword'
+        );
+
+
+      username.addEventListener(
+        'keydown',
+        function(event) {
+
+          if (
+            event.key === 'Enter'
+          ) {
+
+            login();
+
+          }
+
+        }
+      );
+
+
+      password.addEventListener(
+        'keydown',
+        function(event) {
+
+          if (
+            event.key === 'Enter'
+          ) {
+
+            login();
+
+          }
+
+        }
+      );
+
+    }
+
+
+    /*************************************************
+     * ESCAPE HTML
+     *************************************************/
+
+    function escapeHtml(
+      value
+    ) {
+
+      if (
+        value === null ||
+        value === undefined
+      ) {
+
+        return '';
+
+      }
+
+
+      return String(value)
+        .replace(
+          /&/g,
+          '&amp;'
+        )
+        .replace(
+          /</g,
+          '&lt;'
+        )
+        .replace(
+          />/g,
+          '&gt;'
+        )
+        .replace(
+          /"/g,
+          '&quot;'
+        )
+        .replace(
+          /'/g,
+          '&#039;'
+        );
+
+    }
+
+
+    /*************************************************
+     * ESCAPE ATTRIBUTE
+     *************************************************/
+
+    function escapeAttr(
+      value
+    ) {
+
+      return escapeHtml(
+        value
+      );
+
+    }
+
+
+    /*************************************************
+     * CLOSE MODAL WHEN CLICK OUTSIDE
+     *************************************************/
+
+    window.addEventListener(
+      'click',
+      function(event) {
+
+        const loginModal =
+          document.getElementById(
+            'loginModal'
+          );
+
+
+        const barangModal =
+          document.getElementById(
+            'barangModal'
+          );
+
+
+        const kategoriModal =
+          document.getElementById(
+            'kategoriModal'
+          );
+
+
+        if (
+          event.target ===
+          loginModal
+        ) {
+
+          closeLoginModal();
+
+        }
+
+
+        if (
+          event.target ===
+          barangModal
+        ) {
+
+          closeModal();
+
+        }
+
+
+        if (
+          event.target ===
+          kategoriModal
+        ) {
+
+          closeKategoriModal();
+
+        }
+
+      }
+    );
+
+
+  </script>
+
+</body>
+
+</html>
